@@ -1,0 +1,102 @@
+html {
+    height: 100%;
+}
+
+body {
+    background: url('/media/bannerback.jpg') no-repeat center center fixed;
+    background-size: cover;
+    height: calc(100vh - 164px);
+    background-color: #f9a99e;
+    color: #555;
+    font-family: "Pompiere", sans-serif;
+    font-weight: bold;
+}
+
+.nav-bg {
+    background-color: #F9F9E0;
+}
+
+/* from Bulma */
+.icon {
+    align-items: center;
+    display: inline-flex;
+    justify-content: center;
+    height: 1.5rem;
+    width: 1.5rem;
+}
+
+.logo-font {
+    font-family: "Fleur De Leah", cursive;
+    font-size: 3em;
+    text-shadow: 1px 0px 3px;
+}
+
+.main-logo-link {
+    width: fit-content;
+}
+
+.bnnr-text {
+    text-shadow: 1px 1px 2px white, 0 0 1em #ee376a, 0 0 0.2em #F9F9E0;
+}
+
+.shop-now-button {
+    background: #660000;
+    color: #F9F9E0;
+    min-width: 260px;
+}
+
+.btn-bgdy {
+    background: #660000;
+    color: #F9F9E0;
+}
+
+.shop-now-button:hover,
+.shop-now-button:active,
+.shop-now-button:focus,
+.btn-bgdy:hover,
+.btn-bgdy:active,
+.btn-bgdy:focus {
+    background: #F9F9E0;
+    color: #660000;
+
+}
+
+.shop-now-button:hover,
+.shop-now-button:active,
+.shop-now-button:focus {
+    border-color: #660000;
+    font-weight: bold;
+}
+
+.text-bgdy {
+    color: #660000 !important;
+}
+
+.border-bgdy {
+    border: 1px solid #660000 !important;
+}
+
+/* -------------------------------- Media Queries */
+
+/* Slightly larger container on xl screens */
+@media (min-width: 1200px) {
+    .container {
+        max-width: 80%;
+    }
+
+}
+
+/* fixed top navbar only on medium and up */
+@media (min-width: 992px) {
+    .fixed-top-desktop-only {
+        position: fixed;
+        top: 0;
+        right: 0;
+        left: 0;
+        z-index: 1030;
+    }
+
+    .header-container {
+        padding-top: 164px;
+    }
+}
