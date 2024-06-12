@@ -37,6 +37,24 @@
 
 <body>
     <header class="container-fluid fixed-top">
+        <!--banner-->
+        <div id="delivery-banner" class="row text-end pt-lg-2 d-none d-lg-flex" aria-hidden="true">
+            <div class="col-sm marquee fs-3 my-1">
+                <span>
+                    Free delivery on orders over ${{ free_shipping_threshold }}!
+                </span>    
+            </div>
+            <div class="col-sm marquee fs-3 my-1">
+                <span>
+                    Free delivery on orders over ${{ free_shipping_threshold }}!
+                </span>    
+            </div>
+            <div class="col-sm marquee fs-3 my-1">
+                <span>
+                    Free delivery on orders over ${{ free_shipping_threshold }}!
+                </span>    
+            </div>
+        </div>
 
         <div class="row nav-bg py-3 pt-lg-2 d-none d-lg-flex border-bgdy">
             <!--Logo-->
@@ -104,6 +122,26 @@
                     </li>
                 </ul>
             </div>
+        </div>
+        <div class="row nav-bg">
+            <nav class="navbar navbar-expand-lg navbar-light w-100">
+                <div class="col-12 d-flex justify-content-center nav-bg d-block d-sm-none">
+                    <div class="col-sm-12 my-auto py-1 py-lg-0 text-center text-lg">
+                        <a href="{% url 'home' %}" class="nav-link main-logo-link">
+                            <h2 class="logo-font text-bgdy my-0">Mystic Dreams</h2>
+                        </a>
+                    </div> 
+                </div>
+                <div class="col-12 d-flex mr-5">
+                    <button class="navbar-toggler align-self-start" type="button" data-toggle="collapse" data-target="#main-nav"
+                        aria-controls="main-nav" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    {% include 'includes/mobile-top-header.html' %}
+                    {% include 'includes/main-nav.html' %}
+                </div>
+                
+            </nav>
         </div>
     </header>
 
