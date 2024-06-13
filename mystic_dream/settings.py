@@ -26,7 +26,11 @@ SECRET_KEY = "django-insecure-_y^ye81$m-9%dksvu-7eka1t$&4$3a+kp-5^1d+ncau$zi#$j4
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['8000-patilacerda-mystic-dream-iexyqfn7dn.us1.codeanyapp.com', '8000-patilacerda-mysticdream-t9452j6p7vi.ws.codeinstitute-ide.net']
+ALLOWED_HOSTS = ['8000-patilacerda-mysticdream-t9452j6p7vi.ws.codeinstitute-ide.net']
+
+CSRF_TRUSTED_ORIGINS = [
+    'https://8000-patilacerda-mysticdream-t9452j6p7vi.ws.codeinstitute-ide.net',
+]
 
 # Application definition
 
@@ -42,6 +46,7 @@ INSTALLED_APPS = [
     "allauth.account",
     "allauth.socialaccount",
     "home",
+    "products",
 ]
 
 MIDDLEWARE = [
