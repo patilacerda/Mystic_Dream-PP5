@@ -108,6 +108,42 @@ body {
     border: 1px solid #660000 !important;
 }
 
+.overlay {
+    height: 100%;
+	width: 100%;
+	top: 0;
+	left: 0;
+	position: fixed;
+	background: white;
+	z-index: -1;
+}
+
+.card-header {
+    overflow: hidden;
+    position: relative;
+    z-index: 1;
+    background: transparent;
+}
+
+.card-header .view-btn{
+    background: #ee376a;
+    color: #fff;
+    text-decoration: none;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    width: 100%;
+    padding: 10px;
+    position: absolute;
+    left: 0;
+    bottom: -60px;
+    transition: all 0.3s ease 0s;
+}
+.card-header:hover .view-btn{
+    bottom: 0;
+    text-shadow: 1px 1px 2px #660000;
+}
+
+
 /* -------------------------------- Media Queries */
 
 /* Slightly larger container on xl screens */
