@@ -84,7 +84,7 @@
                 <ul class="list-inline list-unstyled text-center text-lg-right my-0">
                     <!--Profile-->
                     <li class="list-inline-item dropdown">
-                        <a class="text-bgdy nav-link" href="#" id="user-options" data-toggle="dropdown"
+                        <a class="text-bgdy nav-link" href="#" id="user-options" data-bs-toggle="dropdown"
                             aria-haspopup="true" aria-expanded="false">
                             <div class="text-center">
                                 <div><i class="fas fa-user fa-lg"></i></div>
@@ -124,16 +124,16 @@
             </div>
         </div>
         <div class="row nav-bg">
-            <nav class="navbar navbar-expand-lg navbar-light w-100">
-                <div class="col-12 d-flex justify-content-center nav-bg d-block d-sm-none">
+            <nav class="navbar navbar-expand-lg w-100">
+                <div class="col-12 d-flex justify-content-center d-block d-sm-none">
                     <div class="col-sm-12 my-auto py-1 py-lg-0 text-center text-lg">
-                        <a href="{% url 'home' %}" class="nav-link main-logo-link">
+                        <a href="{% url 'home' %}" class="nav-link">
                             <h2 class="logo-font text-bgdy my-0">Mystic Dreams</h2>
                         </a>
                     </div> 
                 </div>
-                <div class="col-12 d-flex mr-5">
-                    <button class="navbar-toggler align-self-start" type="button" data-toggle="collapse" data-target="#main-nav"
+                <div class="container-fluid col-12 d-flex mr-5">
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#main-nav"
                         aria-controls="main-nav" aria-expanded="false" aria-label="Toggle navigation">
                         <span class="navbar-toggler-icon"></span>
                     </button>
