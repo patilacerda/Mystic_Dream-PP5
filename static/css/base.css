@@ -118,6 +118,28 @@ body {
 	z-index: -1;
 }
 
+a.category-badge > span.badge {
+    color: #ee376a !important;
+    background: #fff !important;
+    border: solid 2px #ee376a !important;
+}
+a.category-badge > span.badge:hover {
+    background: #ee376a !important;
+    color: #fff !important;
+}
+
+.btt-button {
+    height: 42px;
+    width: 42px;
+    position: fixed;
+    bottom: 10px;
+    right: 10px;
+}
+
+.btt-link {
+    cursor: pointer;
+}
+
 .card-header {
     overflow: hidden;
     position: relative;

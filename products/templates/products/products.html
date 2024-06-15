@@ -15,11 +15,65 @@
     <div class="row">
         <div class="col text-center mt-3">
             <h2 class="logo-font">Products</h2>
+            {% for c in current_categories %}
+            <a class="fs-4 category-badge text-decoration-none" href="{% url 'products' %}?category={{ c.name }}">
+                <span
+                    class="p-2 mt-2 badge rounded-0 border">{{ c.friendly_name }}</span>
+            </a>
+            {% endfor %}
+            <hr class="w-50 mb-1">
         </div>
     </div>
     <div class="row mt-3">
         <div class="product-container col-10 offset-1">
-            <div class="row mt-1 mb-2"></div>
+            <div class="row mt-1 mb-2 fs-4">
+                <div class="col-12 col-md-4 my-auto order-md-last d-flex justify-content-center justify-content-md-end">
+                    <div class="color-filter-wrapper w-50">
+                        <select id="color-filter"
+                            class="custom-select custom-select-sm rounded-0 border border-{% if current_color %}info{% else %}black{% endif %}">
+                            <option value="">Filter by Color...</option>
+                            <option value="blue" {% if current_color == 'blue' %}selected{% endif %}>Blue</option>
+                            <option value="black" {% if current_color == 'blue' %}selected{% endif %}>Black</option>
+                            <option value="green" {% if current_color == 'blue' %}selected{% endif %}>Green</option>
+                            <option value="pink" {% if current_color == 'blue' %}selected{% endif %}>Pink</option>
+                            <option value="purple" {% if current_color == 'blue' %}selected{% endif %}>Purple</option>
+                            <option value="red" {% if current_color == 'red' %}selected{% endif %}>Red</option>
+                            <option value="white" {% if current_color == 'green' %}selected{% endif %}>White</option>
+                            <option value="yellow" {% if current_color == 'blue' %}selected{% endif %}>Yellow</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="col-12 col-md-4 my-auto order-md-last d-flex justify-content-center justify-content-md-end">
+                    <div class="sort-select-wrapper w-50">
+                        <select id="sort-selector"
+                            class="custom-select custom-select-sm rounded-0 border border-{% if current_sorting != 'None_None' %}info{% else %}black{% endif %}">
+                            <option value="reset" {% if current_sorting == 'None_None' %}selected{% endif %}>Sort by...
+                            </option>
+                            <option value="price_asc" {% if current_sorting == 'price_asc' %}selected{% endif %}>Price
+                                (low to high)</option>
+                            <option value="price_desc" {% if current_sorting == 'price_desc' %}selected{% endif %}>Price
+                                (high to low)</option>
+                            <option value="rating_asc" {% if current_sorting == 'rating_asc' %}selected{% endif %}>
+                                Rating (low to high)</option>
+                            <option value="rating_desc" {% if current_sorting == 'rating_desc' %}selected{% endif %}>
+                                Rating (high to low)</option>
+                            <option value="name_asc" {% if current_sorting == 'name_asc' %}selected{% endif %}>Name
+                                (A-Z)</option>
+                            <option value="name_desc" {% if current_sorting == 'name_desc' %}selected{% endif %}>Name
+                                (Z-A)</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="col-12 col-md-4 order-md-first">
+                    <p class="text-muted mt-3 text-center text-md-left">
+                        {% if search_term or current_categories or current_sorting != 'None_None' %}
+                        <span class="small"><a href="{% url 'products' %}">View All Products</a> | </span>
+                        {% endif %}
+                        {{ products|length }} Products{% if search_term %} found for
+                        <strong>"{{ search_term }}"</strong>{% endif %}
+                    </p>
+                </div>
+            </div>
             <div class="row">
                 {% for product in products %}
                 <div class="col-sm-6 col-md-6 col-lg-4 col-xl-3">
@@ -39,7 +93,7 @@
                             </a>
                             {% endif %}
                         </div>
-                        
+
                         <div class="card-body pb-0 fs-5">
                             <p class="mb-0">{{ product.name }}</p>
                         </div>
@@ -48,7 +102,8 @@
                                 <div class="col">
                                     <p class="lead mb-0 text-left font-weight-bold">${{ product.price }}</p>
                                     {% if product.rating %}
-                                    <small class="text-body-secondary"><i class="fas fa-star mr-1"></i>{{ product.rating }} /
+                                    <small class="text-body-secondary"><i
+                                            class="fas fa-star mr-1"></i>{{ product.rating }} /
                                         5</small>
                                     {% else %}
                                     <small class="text-body-secondary">No Rating</small>
@@ -63,4 +118,55 @@
         </div>
     </div>
 </div>
+<div class="btt-button shadow-sm rounded-0 border border-black">
+    <a class="btt-link d-flex h-100">
+        <i class="fas fa-arrow-up text-black mx-auto my-auto"></i>
+    </a>
+</div>
+{% endblock %}
+
+{% block postloadjs %}
+    {{ block.super }}
+    <script type="text/javascript">
+		$('.btt-link').click(function(e) {
+			window.scrollTo(0,0)
+		})
+	</script>
+    
+    <script type="text/javascript">
+        $('#sort-selector').change(function() {
+            var selector = $(this);
+            var currentUrl = new URL(window.location);
+
+            var selectedVal = selector.val();
+            if(selectedVal != "reset"){
+                var sort = selectedVal.split("_")[0];
+                var direction = selectedVal.split("_")[1];
+
+                currentUrl.searchParams.set("sort", sort);
+                currentUrl.searchParams.set("direction", direction);
+
+                window.location.replace(currentUrl);
+            } else {
+                currentUrl.searchParams.delete("sort");
+                currentUrl.searchParams.delete("direction");
+
+                window.location.replace(currentUrl);
+            }
+        })
+
+        $('#color-filter').change(function() {
+            var selector = $(this);
+            var currentUrl = new URL(window.location);
+
+            var selectedColor = selector.val();
+            if(selectedColor){
+                currentUrl.searchParams.set("color", selectedColor);
+                window.location.replace(currentUrl);
+            } else {
+                currentUrl.searchParams.delete("color");
+                window.location.replace(currentUrl);
+            }
+        })
+    </script>
 {% endblock %}
