@@ -17,10 +17,11 @@
                 Intimates
             </a>
             <div class="dropdown-menu border-0" aria-labelledby="clothing-link">
-                <a href="" class="dropdown-item">Lingerie Set</a>
-                <a href="" class="dropdown-item">Bras</a>
-                <a href="" class="dropdown-item">Bottons</a>
-                <a href="" class="dropdown-item">Garter Belt</a>
+                <a href="{% url 'products' %}?category=lingerie_set" class="dropdown-item">Lingerie Set</a>
+                <a href="{% url 'products' %}?category=bras" class="dropdown-item">Bras</a>
+                <a href="{% url 'products' %}?category=bottoms" class="dropdown-item">Bottoms</a>
+                <a href="{% url 'products' %}?category=accessories" class="dropdown-item">Garter Belt</a>
+                <a href="{% url 'products' %}?category=lingerie_set,bras,bottoms,accessories" class="dropdown-item">All Intimates</a>
             </div>
         </li>
 
@@ -29,10 +30,10 @@
                 Nightwear
             </a>
             <div class="dropdown-menu border-0" aria-labelledby="homeware-link">
-                <a href="" class="dropdown-item">Nighties</a>
-                <a href="" class="dropdown-item">Pajamas</a>
-                <a href="" class="dropdown-item">Robes</a>
-                <a href="" class="dropdown-item">All Nightwear</a>
+                <a href="{% url 'products' %}?category=nighties" class="dropdown-item">Nighties</a>
+                <a href="{% url 'products' %}?category=pajamas" class="dropdown-item">Pajamas</a>
+                <a href="{% url 'products' %}?category=robes" class="dropdown-item">Robes</a>
+                <a href="{% url 'products' %}?category=nighties,pajamas,robes" class="dropdown-item">All Nightwear</a>
             </div>
         </li>
 
