@@ -5,9 +5,9 @@
                 Shop All
             </a>
             <div class="dropdown-menu border-0" aria-labelledby="all-products-link">
-                <a href="" class="dropdown-item">By Price</a>
-                <a href="" class="dropdown-item ">By Rating</a>
-                <a href="" class="dropdown-item ">By Size</a>
+                <a href="{% url 'products' %}?sort=price&direction=asc" class="dropdown-item">By Price</a>
+                <a href="{% url 'products' %}?sort=rating&direction=desc" class="dropdown-item ">By Rating</a>
+                <a href="{% url 'products' %}?sort=color&direction=asc" class="dropdown-item ">By Colour</a>
                 <a href="{% url 'products' %}" class="dropdown-item">All Products</a>
             </div>
         </li>
@@ -42,11 +42,11 @@
                 Collections
             </a>
             <div class="dropdown-menu border-0" aria-labelledby="specials-link">
-                <a href="" class="dropdown-item">Enchanted garden</a>
-                <a href="" class="dropdown-item">Ethereal Blossom</a>
-                <a href="" class="dropdown-item">Fairy whisper</a>
-                <a href="" class="dropdown-item">Forest nymph</a>
-                <a href="" class="dropdown-item">Pixie Dust</a>
+                <a href="{% url 'products' %}?collection=Enchanted_Garden_Collection" class="dropdown-item">Enchanted garden</a>
+                <a href="{% url 'products' %}?collection=Ethereal_Blossom_Collection" class="dropdown-item">Ethereal Blossom</a>
+                <a href="{% url 'products' %}?collection=Fairy_Whisper_Collection" class="dropdown-item">Fairy whisper</a>
+                <a href="{% url 'products' %}?collection=Forest_Nymph_Collection" class="dropdown-item">Forest nymph</a>
+                <a href="{% url 'products' %}?collection=Pixie_Dust_Collection" class="dropdown-item">Pixie Dust</a>
             </div>
         </li>
     </ul>
