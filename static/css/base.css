@@ -12,33 +12,7 @@ body {
     font-weight: bold;
 }
 
-.nav-bg {
-    background-color: #F9F9E0;
-}
-
-.navbar {
-    box-shadow: 0px 3px 8px #660000;
-}
-.navbar a:hover {
-    text-shadow: 1px 1px 3px white, 1px 1px 3px #ee376a;
-    text-decoration: 0.5px underline;
-    text-underline-offset: 8px;
-}
-
-#delivery-banner {
-    background: #660000;
-    color: #F9F9E0;
-    font-weight: lighter;
-}
-
-/* from Bulma */
-.icon {
-    align-items: center;
-    display: inline-flex;
-    justify-content: center;
-    height: 1.5rem;
-    width: 1.5rem;
-}
+/* ------------------------------- header */
 
 .logo-font {
     font-family: "Fleur De Leah", cursive;
@@ -67,8 +41,46 @@ body {
     }
 }
 
+/* ------------------------------- NavBar */
+
+.nav-bg {
+    background-color: #F9F9E0;
+}
+
+.navbar {
+    box-shadow: 0px 3px 8px #660000;
+}
+.navbar a:hover {
+    text-shadow: 1px 1px 3px white, 1px 1px 3px #ee376a;
+    text-decoration: 0.5px underline;
+    text-underline-offset: 8px;
+}
+
+#delivery-banner {
+    background: #660000;
+    color: #F9F9E0;
+    font-weight: lighter;
+}
+
+/* from Bulma */
+.icon {
+    align-items: center;
+    display: inline-flex;
+    justify-content: center;
+    height: 1.5rem;
+    width: 1.5rem;
+}
+
 .bnnr-text {
     text-shadow: 1px 1px 2px white, 0 0 1em #ee376a, 0 0 0.2em #F9F9E0;
+}
+
+.text-bgdy {
+    color: #660000 !important;
+}
+
+.border-bgdy {
+    border: 1px solid #660000 !important;
 }
 
 .btn-outline-black {
@@ -113,14 +125,6 @@ body {
     font-weight: bold;
 }
 
-.text-bgdy {
-    color: #660000 !important;
-}
-
-.border-bgdy {
-    border: 1px solid #660000 !important;
-}
-
 .overlay {
     height: 100%;
 	width: 100%;
@@ -154,6 +158,29 @@ a.category-badge > span.badge:hover {
 .remove-item {
     cursor: pointer;
 }
+
+/* ------------------------------- bootstrap toasts */
+
+.message-container {
+    position: fixed;
+    top: 8rem;
+    right: 20px;
+    z-index: 99999999999;
+}
+
+.custom-toast {
+    overflow: visible;
+}
+
+.toast-capper {
+    height: 2px;
+}
+
+.toast .fade {
+    opacity: 100% !important;
+}
+
+/* -------------------------------- Cards */
 
 .card-header {
     overflow: hidden;
