@@ -1,0 +1,24 @@
+Hello {{ order.full_name }}!
+
+The fairies at Mystic Dreams have received your order! Here’s your enchanted order information:
+
+Order Number: {{ order.order_number }}
+Order Date: {{ order.date }}
+
+Order Total: ${{ order.order_total }}
+Delivery: ${{ order.delivery_cost }}
+Grand Total: ${{ order.grand_total }}
+
+Our fairies are now working their magic to prepare your order, which will soon be on its way to:
+{{ order.street_address1 }}
+{{ order.town_or_city }}, {{ order.country }}
+
+We’ve got your fairy dust contact as: {{ order.phone_number }}
+
+If you have any questions or need any assistance, please feel free to reach out to us at {{ contact_email }}.
+
+Thank you for choosing Mystic Dream to add a touch of magic to your wardrobe!
+
+Wishing you enchanting moments,
+
+Mystic Dreams Intimate

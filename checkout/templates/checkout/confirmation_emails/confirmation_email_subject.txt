@@ -1,0 +1,1 @@
+Mystic Dreams Intimate - Your Order {{ order.order_number }} Has Been Placed!
