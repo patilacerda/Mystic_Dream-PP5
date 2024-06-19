@@ -368,6 +368,10 @@ input[name='q']::placeholder {
     border-radius: 0;
 }
 
+.errorbck {
+    background-color: #e3e3e38a;
+    padding: 19px;
+}
 /* -------------------------------- Media Queries */
 
 /* Slightly larger container on xl screens */
