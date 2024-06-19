@@ -1,0 +1,1 @@
+web: gunicorn mystic_dream.wsgi:application
