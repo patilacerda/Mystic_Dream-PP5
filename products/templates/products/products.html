@@ -17,8 +17,7 @@
             <h2 class="logo-font">Products</h2>
             {% for c in current_categories %}
             <a class="fs-4 category-badge text-decoration-none" href="{% url 'products' %}?category={{ c.name }}">
-                <span
-                    class="p-2 mt-2 badge rounded-0 border">{{ c.friendly_name }}</span>
+                <span class="p-2 mt-2 badge rounded-0 border">{{ c.friendly_name }}</span>
             </a>
             {% endfor %}
             <hr class="w-50 mb-1">
@@ -108,6 +107,12 @@
                                     {% else %}
                                     <small class="text-body-secondary">No Rating</small>
                                     {% endif %}
+                                    {% if request.user.is_superuser %}
+                                    <small class="ml-3">
+                                        <a href="{% url 'edit_product' product.id %}">Edit</a> |
+                                        <a class="text-danger" href="{% url 'delete_product' product.id %}">Delete</a>
+                                    </small>
+                                    {% endif %}
                                 </div>
                             </div>
                         </div>
@@ -126,47 +131,47 @@
 {% endblock %}
 
 {% block postloadjs %}
-    {{ block.super }}
-    <script type="text/javascript">
-		$('.btt-link').click(function(e) {
-			window.scrollTo(0,0)
-		})
-	</script>
-    
-    <script type="text/javascript">
-        $('#sort-selector').change(function() {
-            var selector = $(this);
-            var currentUrl = new URL(window.location);
+{{ block.super }}
+<script type="text/javascript">
+    $('.btt-link').click(function (e) {
+        window.scrollTo(0, 0)
+    })
+</script>
 
-            var selectedVal = selector.val();
-            if(selectedVal != "reset"){
-                var sort = selectedVal.split("_")[0];
-                var direction = selectedVal.split("_")[1];
+<script type="text/javascript">
+    $('#sort-selector').change(function () {
+        var selector = $(this);
+        var currentUrl = new URL(window.location);
 
-                currentUrl.searchParams.set("sort", sort);
-                currentUrl.searchParams.set("direction", direction);
+        var selectedVal = selector.val();
+        if (selectedVal != "reset") {
+            var sort = selectedVal.split("_")[0];
+            var direction = selectedVal.split("_")[1];
 
-                window.location.replace(currentUrl);
-            } else {
-                currentUrl.searchParams.delete("sort");
-                currentUrl.searchParams.delete("direction");
+            currentUrl.searchParams.set("sort", sort);
+            currentUrl.searchParams.set("direction", direction);
 
-                window.location.replace(currentUrl);
-            }
-        })
+            window.location.replace(currentUrl);
+        } else {
+            currentUrl.searchParams.delete("sort");
+            currentUrl.searchParams.delete("direction");
 
-        $('#color-filter').change(function() {
-            var selector = $(this);
-            var currentUrl = new URL(window.location);
+            window.location.replace(currentUrl);
+        }
+    })
 
-            var selectedColor = selector.val();
-            if(selectedColor){
-                currentUrl.searchParams.set("color", selectedColor);
-                window.location.replace(currentUrl);
-            } else {
-                currentUrl.searchParams.delete("color");
-                window.location.replace(currentUrl);
-            }
-        })
-    </script>
+    $('#color-filter').change(function () {
+        var selector = $(this);
+        var currentUrl = new URL(window.location);
+
+        var selectedColor = selector.val();
+        if (selectedColor) {
+            currentUrl.searchParams.set("color", selectedColor);
+            window.location.replace(currentUrl);
+        } else {
+            currentUrl.searchParams.delete("color");
+            window.location.replace(currentUrl);
+        }
+    })
+</script>
 {% endblock %}
