@@ -17,7 +17,11 @@
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Fleur+De+Leah&family=Pompiere&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Ysabeau+Infant:ital,wght@0,1..1000;1,1..1000&display=swap"
+        rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Jost:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
     <!-- Static CSS -->
     <link rel="stylesheet" href="{% static 'css/base.css' %}">
     {% endblock %}
@@ -51,25 +55,31 @@
 <body>
     <header class="container-fluid fixed-top">
         <!--banner-->
-        <div id="delivery-banner" class="row text-end pt-lg-2 d-none d-lg-flex" aria-hidden="true">
-            <div class="col-sm marquee fs-3 my-1">
-                <span>
+        <div id="delivery-banner" class="row text-end pt-lg-2 d-none d-lg-flex align-items-center" aria-hidden="true">
+            <div class="mobile-banner col-sm marquee">
+                <i class="fa-regular fa-heart"></i>
+                <span class="fs-4">
                     Free delivery on orders over ${{ free_delivery_threshold }}!
                 </span>
+                <i class="fa-regular fa-heart"></i>
             </div>
-            <div class="col-sm marquee fs-3 my-1">
-                <span>
+            <div class="col-sm marquee">
+                <i class="fa-regular fa-heart"></i>
+                <span class="fs-4">
                     Free delivery on orders over ${{ free_delivery_threshold }}!
                 </span>
+                <i class="fa-regular fa-heart"></i>
             </div>
-            <div class="col-sm marquee fs-3 my-1">
-                <span>
+            <div class="col-sm marquee">
+                <i class="fa-regular fa-heart"></i>
+                <span class="fs-4">
                     Free delivery on orders over ${{ free_delivery_threshold }}!
                 </span>
+                <i class="fa-regular fa-heart"></i>
             </div>
         </div>
 
-        <div class="row nav-bg py-3 pt-lg-2 d-none d-lg-flex border-bgdy">
+        <div class="row nav-bg py-3 pt-lg-2 d-none d-lg-flex">
             <!--Logo-->
             <div class="col-12 col-lg-4 my-auto py-1 py-lg-0 text-center text-lg">
                 <a href="{% url 'home' %}" class="nav-link main-logo-link">
@@ -79,7 +89,7 @@
             <!--Search-->
             <div class="col-12 col-lg-4 my-auto py-1 py-lg-0">
                 <form method="GET" action="{% url 'products' %}">
-                    <div class="input-group border border-bgdy rounded-pill w-100">
+                    <div class="input-group border border-black rounded-pill w-100">
                         <input class="form-control rounded-start-pill" type="text" name="q" placeholder="Search">
                         <div class="input-group-append">
                             <button class="form-control btn btn-bgdy rounded-end-pill" type="submit">
@@ -95,8 +105,8 @@
             <div class="col-12 col-lg-4 my-auto py-1 py-lg-0">
                 <ul class="list-inline list-unstyled text-center text-lg-right my-0">
                     <!--Profile-->
-                    <li class="list-inline-item dropdown">
-                        <a class="text-bgdy nav-link" href="#" id="user-options" data-bs-toggle="dropdown"
+                    <li class="list-inline-item dropdown text-bgdy">
+                        <a class="nav-link" href="#" id="user-options" data-bs-toggle="dropdown"
                             aria-haspopup="true" aria-expanded="false">
                             <div class="text-center">
                                 <div><i class="fas fa-user fa-lg"></i></div>
@@ -148,7 +158,7 @@
                 <div class="container-fluid col-12 d-flex mr-5">
                     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#main-nav"
                         aria-controls="main-nav" aria-expanded="false" aria-label="Toggle navigation">
-                        <span class="navbar-toggler-icon"></span>
+                        <i class="fa-solid fa-bars"></i>
                     </button>
                     {% include 'includes/mobile-top-header.html' %}
                     {% include 'includes/main-nav.html' %}

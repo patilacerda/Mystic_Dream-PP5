@@ -6,18 +6,17 @@ body {
     background: url('/media/bannerback.jpg') no-repeat center center fixed;
     background-size: cover;
     height: calc(100vh - 164px);
-    background-color: #f9a99e;
+    background-color: #120147;
     color: #555;
-    font-family: "Pompiere", sans-serif;
-    font-weight: bold;
+    font-family: "Jost", sans-serif;
 }
 
 /* ------------------------------- header */
 
 .logo-font {
-    font-family: "Fleur De Leah", cursive;
     font-size: 3em;
-    text-shadow: 1px 0px 3px;
+    text-decoration: none;
+    color: #f30080;
 }
 
 .main-logo-link {
@@ -44,26 +43,33 @@ body {
 /* ------------------------------- NavBar */
 
 .nav-bg {
-    background-color: #F9F9E0;
+    background-color: #000;
 }
 
 .navbar {
-    box-shadow: 0px 3px 8px #660000;
+    box-shadow: 0px 6px 6px #f30080;
 }
 .navbar a:hover {
-    text-shadow: 1px 1px 3px white, 1px 1px 3px #ee376a;
+    text-shadow: 1px 1px 2px white, -1px -1px 5px #f30080;
     text-decoration: 0.5px underline;
     text-underline-offset: 8px;
 }
 
+.fa-bars {
+    color: #fff;
+    font-weight: bold;
+    font-size: 2rem;
+}
+
 #delivery-banner {
-    background: #660000;
-    color: #F9F9E0;
-    font-weight: lighter;
+    background: #f30080;
+    color: #ffff;
+    text-shadow: 1px 1px 2px #660000;
 }
 
 /* from Bulma */
-.icon {
+.icon,
+.i {
     align-items: center;
     display: inline-flex;
     justify-content: center;
@@ -72,15 +78,27 @@ body {
 }
 
 .bnnr-text {
-    text-shadow: 1px 1px 2px white, 0 0 1em #ee376a, 0 0 0.2em #F9F9E0;
+    font-weight: 500;
+    color: #120147;
+    text-shadow: 2px -1px 4px #e831da, -2px 1px 0em white;
+    background-color: #e3e3e38a;
+    padding: 19px;
 }
 
 .text-bgdy {
-    color: #660000 !important;
+    color: #ffff !important;
 }
 
-.border-bgdy {
-    border: 1px solid #660000 !important;
+.text-black {
+    color: #000 !important;
+}
+
+.border-black {
+    border: 1px solid black !important;
+}
+
+.bg-black {
+    background: #000 !important;
 }
 
 .btn-outline-black {
@@ -97,14 +115,19 @@ body {
 }
 
 .shop-now-button {
-    background: #660000;
-    color: #F9F9E0;
+    background: #f30080;
+    color: #fff;
     min-width: 260px;
 }
 
+.btn-black {
+    background: black;
+    color: white;
+}
+
 .btn-bgdy {
-    background: #660000;
-    color: #F9F9E0;
+    background: #f30080;
+    color: #fff;
 }
 
 .shop-now-button:hover,
@@ -113,15 +136,15 @@ body {
 .btn-bgdy:hover,
 .btn-bgdy:active,
 .btn-bgdy:focus {
-    background: #F9F9E0;
-    color: #660000;
+    background: #fff;
+    color: #f30080;
+    border-color: solid 1px #f30080;
 
 }
 
 .shop-now-button:hover,
 .shop-now-button:active,
 .shop-now-button:focus {
-    border-color: #660000;
     font-weight: bold;
 }
 
@@ -136,9 +159,9 @@ body {
 }
 
 a.category-badge > span.badge {
-    color: #ee376a !important;
+    color: #f30080 !important;
     background: #fff !important;
-    border: solid 2px #ee376a !important;
+    border: solid 2px #f30080 !important;
 }
 a.category-badge > span.badge:hover {
     background: #ee376a !important;
@@ -157,6 +180,10 @@ a.category-badge > span.badge:hover {
 .update-link,
 .remove-item {
     cursor: pointer;
+}
+
+input[name='q']::placeholder {
+    color: #aab7c4;
 }
 
 /* ------------------------------- bootstrap toasts */
@@ -237,7 +264,7 @@ a.category-badge > span.badge:hover {
 }
 
 .card-header .view-btn{
-    background: #ee376a;
+    background: #f30080;
     color: #fff;
     text-decoration: none;
     text-transform: uppercase;
@@ -259,6 +286,11 @@ a.category-badge > span.badge:hover {
 .allauth-form-inner-content p {
     margin-top: 1.5rem; /* mt-4 */
     color: #6c757d; /* text-secondary */
+}
+
+.allauth-form-inner-content h1 {
+    font-size: 3em;
+    color: #f30080;
 }
 
 .allauth-form-inner-content input {
@@ -359,6 +391,7 @@ a.category-badge > span.badge:hover {
     .header-container {
         padding-top: 164px;
     }
+
 }
 
 /* pad the top a bit when navbar is collapsed on mobile */
@@ -369,5 +402,40 @@ a.category-badge > span.badge:hover {
 
     body {
         height: calc(100vh - 116px);
+    }
+    .display-4.logo-font.text-black {
+        font-size: 2rem;
+    }
+
+    .nav-link {
+        padding: 0.15rem;
+    }
+
+    .nav-link i.fa-lg {
+        font-size: 1rem;
+    }
+
+    .navbar-toggler {
+        padding: .6rem .6rem;
+        font-size: 1rem;
+    }
+
+    #delivery-banner h4 {
+        font-size: .9rem;
+    }
+
+    .btn.btn-outline-black.rounded-0,
+    .btn.btn-black.rounded-0 {
+        padding: .375rem .375rem;
+    }
+
+    .btn.btn-outline-black.rounded-0.btn-lg,
+    .btn.btn-black.rounded-0.btn-lg {
+        padding: .375rem .375rem;
+        font-size: .75rem;
+    }
+
+    .increment-qty, .decrement-qty {
+        padding: .25rem .5rem !important;
     }
 }
