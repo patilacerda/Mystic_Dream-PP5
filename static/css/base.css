@@ -264,6 +264,34 @@ input[name='q']::placeholder {
     background: transparent;
 }
 
+.wish-btn {
+    font-size: 2rem;
+    text-decoration: none;
+    border: none;
+    color: #f30080;
+}
+
+.wish-nav {
+    text-decoration: none;
+    color: #fff;
+
+}
+
+.card-header .wish-btn {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    position: absolute;
+    top: 10px;
+    right: -50px;
+    transition: all .5s ease 0s;
+}
+.card-header:hover .wish-btn{ 
+    right: 10px;
+    display: block;
+    transition: all 0.3s;
+}
+
 .card-header .view-btn{
     background: #f30080;
     color: #fff;

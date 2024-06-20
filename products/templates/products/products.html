@@ -26,7 +26,8 @@
     <div class="row mt-3">
         <div class="product-container col-10 offset-1">
             <div class="row mt-1 mb-2 fs-4">
-                <div class="col-12 col-md-4 my-auto order-md-last d-flex justify-content-center justify-content-md-center">
+                <div
+                    class="col-12 col-md-4 my-auto order-md-last d-flex justify-content-center justify-content-md-center">
                     <div class="color-filter-wrapper w-50">
                         <select id="color-filter"
                             class="custom-select custom-select-sm rounded-0 border border-{% if current_color %}info{% else %}black{% endif %}">
@@ -42,7 +43,8 @@
                         </select>
                     </div>
                 </div>
-                <div class="col-12 col-md-4 my-auto order-md-last d-flex justify-content-center justify-content-md-center">
+                <div
+                    class="col-12 col-md-4 my-auto order-md-last d-flex justify-content-center justify-content-md-center">
                     <div class="sort-select-wrapper w-50">
                         <select id="sort-selector"
                             class="custom-select custom-select-sm rounded-0 border border-{% if current_sorting != 'None_None' %}info{% else %}black{% endif %}">
@@ -79,18 +81,32 @@
                     <div class="card h-100 border-0 text-center">
                         <div class="card-header">
                             {% if product.image %}
-                            <a href="{% url 'product_detail' product.id %}">
-                                <img class="card-img-top img-fluid" src="{{ product.image.url }}"
-                                    alt="{{ product.name }}">
-                                <span class="view-btn">View Details</span>
-                            </a>
-                            {% else %}
-                            <a href="{% url 'product_detail' product.id %}">
-                                <img class="card-img-top img-fluid" src="{{ MEDIA_URL }}noimage.png"
-                                    alt="{{ product.name }}">
-                                <span class="view-btn">View Details</span>
-                            </a>
-                            {% endif %}
+                            <ul class="list-unstyled">
+                                <li>
+                                    {% if user.is_authenticated %}
+                                    <form action="{% url 'add_to_wishlist' product.id %}" method="post">
+                                        {% csrf_token %}
+                                        <button type="submit" class="wish-btn"><i class="fa fa-heart "></i></button>
+                                    </form>
+                                    {% endif %}
+                                </li>
+                                <li>
+                                    <a href="{% url 'product_detail' product.id %}">
+                                        <img class="card-img-top img-fluid" src="{{ product.image.url }}"
+                                            alt="{{ product.name }}">
+                                        <span class="view-btn">View Details</span>
+                                    </a>
+                                    {% else %}
+                                    <a href="{% url 'product_detail' product.id %}">
+                                        <img class="card-img-top img-fluid" src="{{ MEDIA_URL }}noimage.png"
+                                            alt="{{ product.name }}">
+                                        <span class="view-btn">View Details</span>
+                                    </a>
+                                    {% endif %}
+                                </li>
+                            </ul>
+                            
+                            
                         </div>
 
                         <div class="card-body pb-0 fs-5">
