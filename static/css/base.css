@@ -9,6 +9,7 @@ body {
     background-color: #120147;
     color: #555;
     font-family: "Jost", sans-serif;
+    overflow-x: hidden;
 }
 
 /* ------------------------------- header */
@@ -371,6 +372,24 @@ input[name='q']::placeholder {
 .errorbck {
     background-color: #e3e3e38a;
     padding: 19px;
+}
+.empty-container {
+    height: 42vh;
+}
+
+footer {
+    background: #f30080;
+    color: #000;
+    bottom: 0;
+}
+
+footer a {
+    text-decoration: none;
+}
+
+#mc_embed_signup {
+    clear: left;
+    width: 100%;
 }
 /* -------------------------------- Media Queries */
 

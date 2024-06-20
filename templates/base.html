@@ -21,7 +21,10 @@
         rel="stylesheet">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Jost:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Jost:ital,wght@0,100..900;1,100..900&display=swap"
+        rel="stylesheet">
+    <!--Mailchimp-->
+    <link href="//cdn-images.mailchimp.com/embedcode/classic-061523.css" rel="stylesheet" type="text/css">
     <!-- Static CSS -->
     <link rel="stylesheet" href="{% static 'css/base.css' %}">
     {% endblock %}
@@ -106,8 +109,8 @@
                 <ul class="list-inline list-unstyled text-center text-lg-right my-0">
                     <!--Profile-->
                     <li class="list-inline-item dropdown text-bgdy">
-                        <a class="nav-link" href="#" id="user-options" data-bs-toggle="dropdown"
-                            aria-haspopup="true" aria-expanded="false">
+                        <a class="nav-link" href="#" id="user-options" data-bs-toggle="dropdown" aria-haspopup="true"
+                            aria-expanded="false">
                             <div class="text-center">
                                 <div><i class="fas fa-user fa-lg"></i></div>
                                 <p class="my-0">My Account</p>
@@ -193,6 +196,10 @@
 
     {% block content %}
     {% endblock %}
+    <div class="row">
+        {% include 'includes/footer.html' %}
+    </div>
+
 
     {% block postloadjs %}
     <!-- Toast JS -->
