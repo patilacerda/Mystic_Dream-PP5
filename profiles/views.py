@@ -21,7 +21,8 @@ def profile(request):
             form.save()
             messages.success(request, 'Profile updated successfully')
         else:
-            messages.error(request, 'Update failed. Please ensure the form is valid.')
+            messages.error(
+                request, 'Update failed. Please ensure the form is valid.')
     else:
         form = UserProfileForm(instance=profile)
     orders = profile.orders.all()
@@ -58,7 +59,8 @@ def order_history(request, order_number):
 def add_to_wishlist(request, product_id):
     """Add a product to the user's wishlist"""
     product = get_object_or_404(Product, pk=product_id)
-    wishlist, created = Wishlist.objects.get_or_create(user=request.user, product=product)
+    wishlist, created = Wishlist.objects.get_or_create(
+        user=request.user, product=product)
     if created:
         messages.success(request, f'Added {product.name} to your wishlist!')
     else:
