@@ -3,7 +3,11 @@ from django.conf import settings
 from django.shortcuts import get_object_or_404
 from products.models import Product
 
+
 def bag_contents(request):
+    """
+    Retrieve and calculate the contents of the shopping bag.
+    """
 
     bag_items = []
     total = 0
@@ -38,9 +42,9 @@ def bag_contents(request):
     else:
         delivery = 0
         free_delivery_delta = 0
-    
+
     grand_total = delivery + total
-    
+
     context = {
         'bag_items': bag_items,
         'total': total,
