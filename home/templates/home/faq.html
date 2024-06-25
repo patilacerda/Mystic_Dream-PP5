@@ -1,0 +1,129 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block page_header %}
+<div class="container header-container">
+    <div class="row">
+        <div class="col"></div>
+    </div>
+</div>
+{% endblock %}
+
+{% block content %}
+<div class="overlay"></div>
+<div class="container-fluid mt-5">
+    <div class="row">
+        <div class="col text-center mt-3">
+            <h2 class="logo-font">FAQ</h2>
+            <p class="text-body-secondary">Frequently asked questions</p>
+            <hr class="w-50 mb-1">
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-6 offset-md-3 mt-3">
+            <div class="text-start">
+                <div class="accordion" id="accordionPanelsStayOpenExample">
+                    <!-- First Accordion for Delivery Times -->
+                    <div class="accordion-item">
+                        <h2 class="accordion-header">
+                            <button class="accordion-button" type="button" data-bs-toggle="collapse"
+                                data-bs-target="#panelsStayOpen-collapseOne" aria-expanded="true"
+                                aria-controls="panelsStayOpen-collapseOne">
+                                When will my order be delivered?
+                            </button>
+                        </h2>
+                        <div id="panelsStayOpen-collapseOne" class="accordion-collapse collapse show">
+                            <div class="accordion-body">
+                                <strong>Delivery Times:</strong> The estimated delivery time within Europe and the UK is
+                                typically within 5-7 business days. Please note that delivery times may vary based on
+                                your location and during peak periods.
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Second Accordion for Delivery Costs -->
+                    <div class="accordion-item">
+                        <h2 class="accordion-header">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                data-bs-target="#panelsStayOpen-collapseTwo" aria-expanded="false"
+                                aria-controls="panelsStayOpen-collapseTwo">
+                                How much does delivery cost?
+                            </button>
+                        </h2>
+                        <div id="panelsStayOpen-collapseTwo" class="accordion-collapse collapse">
+                            <div class="accordion-body">
+                                <strong>Delivery Costs:</strong> Delivery charges are 10% of your total spend. Enjoy
+                                free shipping for orders over €50.
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Third Accordion for Payment Methods -->
+                    <div class="accordion-item">
+                        <h2 class="accordion-header">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                data-bs-target="#panelsStayOpen-collapseThree" aria-expanded="false"
+                                aria-controls="panelsStayOpen-collapseThree">
+                                How can I pay for my order?
+                            </button>
+                        </h2>
+                        <div id="panelsStayOpen-collapseThree" class="accordion-collapse collapse">
+                            <div class="accordion-body">
+                                <strong>Payment Methods:</strong> You can pay using any major credit or debit card.
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Fourth Accordion for Size Guide -->
+                    <div class="accordion-item">
+                        <h2 class="accordion-header">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                data-bs-target="#panelsStayOpen-collapseFour" aria-expanded="false"
+                                aria-controls="panelsStayOpen-collapseFour">
+                                Size Guide
+                            </button>
+                        </h2>
+                        <div id="panelsStayOpen-collapseFour" class="accordion-collapse collapse">
+                            <div class="accordion-body">
+                                <table class="table text-center">
+                                    <thead>
+                                        <tr>
+                                            <th>Size</th>
+                                            <th>EU</th>
+                                            <th>UK</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>XS</td>
+                                            <td>34-36</td>
+                                            <td>4-6</td>
+                                        </tr>
+                                        <tr>
+                                            <td>S</td>
+                                            <td>36-38</td>
+                                            <td>6-8</td>
+                                        </tr>
+                                        <tr>
+                                            <td>M</td>
+                                            <td>38-40</td>
+                                            <td>8-10</td>
+                                        </tr>
+                                        <tr>
+                                            <td>L</td>
+                                            <td>40-42</td>
+                                            <td>10-12</td>
+                                        </tr>
+                                        <tr>
+                                            <td>XL</td>
+                                            <td>42-44</td>
+                                            <td>12-14</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

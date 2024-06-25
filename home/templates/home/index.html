@@ -2,26 +2,70 @@
 {% load static %}
 
 {% block page_header %}
-    <div class="container header-container">
-        <div class="row">
-            <div class="col"></div>
-        </div>
+<div class="container header-container">
+    <div class="row">
+        <div class="col"></div>
     </div>
+</div>
 {% endblock %}
 
 {% block content %}
-    <div class="container h-100">
-        <div class="row h-100">
-            <div class="col-7 col-md-6 my-auto">
-                <h1 class="bnnr-text display-4">
-                    Unlock the Secrets of Enchanted Beauty
-                </h1>
-                <div class="my-5">
-                    <h4>
-                        <a href="{% url 'products' %}" class="shop-now-button btn btn-lg rounded-pill fs-2 py-3">Discover</a>
-                    </h4>
-                </div>
+<div class="container h-100">
+    <!--Index banner-->
+    <div class="row h-100">
+        <div class="col-7 col-md-6 my-auto">
+            <h1 class="bnnr-text display-4">
+                Unlock the Secrets of Enchanted Beauty
+            </h1>
+            <div class="my-5">
+                <h4>
+                    <a href="{% url 'products' %}"
+                        class="shop-now-button btn btn-lg rounded-pill fs-2 py-3">Discover</a>
+                </h4>
             </div>
         </div>
     </div>
+    <!--End index banner-->
+    <div class="container">
+        <!--Categories Menu-->
+        <div class="font-logo">
+            <h2>All Categories</h2>
+        </div>
+
+        <ul class="category-list">
+            <li class="category-item">
+                <a href="#">
+                    <img src="img/categories/categories1.png" alt="" class="category-image" />
+                    <span class="category-title">Lingerie Sets</span>
+                </a>
+            </li>
+            <li class="category-item">
+                <a href="#">
+                    <img src="img/categories/categories2.png" alt="" class="category-image" />
+                    <span class="category-title">Bras</span>
+                </a>
+            </li>
+            <li class="category-item">
+                <a href="#">
+                    <img src="img/categories/categories3.png" alt="" class="category-image" />
+                    <span class="category-title">Bottoms</span>
+                </a>
+            </li>
+            <li class="category-item">
+                <a href="#">
+                    <img src="img/categories/categories4.png" alt="" class="category-image" />
+                    <span class="category-title">Accessories</span>
+                </a>
+            </li>
+            <li class="category-item">
+                <a href="#">
+                    <img src="img/categories/categories5.png" alt="" class="category-image" />
+                    <span class="category-title">Nightwear</span>
+                </a>
+            </li>
+        </ul>
+        <!--End Categories menu-->
+    </div>
+    
+</div>
 {% endblock %}

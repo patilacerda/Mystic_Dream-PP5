@@ -78,6 +78,8 @@ body {
     width: 1.5rem;
 }
 
+/*Index*/
+
 .bnnr-text {
     font-weight: 500;
     color: #120147;
@@ -86,6 +88,16 @@ body {
     padding: 19px;
 }
 
+.accordion {
+    --bs-accordion-btn-focus-box-shadow: 0 0 0 0.25rem #f3008249;
+}
+.accordion-button:not(.collapsed) {
+    background-color: #f3008249;
+    color: #000;
+    font-weight: bold;
+}
+
+/*Default Styles*/
 .text-bgdy {
     color: #ffff !important;
 }
@@ -405,6 +417,7 @@ input[name='q']::placeholder {
     height: 42vh;
 }
 
+/*Footer*/
 footer {
     background: #f30080;
     color: #000;
@@ -415,9 +428,21 @@ footer a {
     text-decoration: none;
 }
 
+/*Mailchimp*/
 #mc_embed_signup {
     clear: left;
     width: 100%;
+}
+.contact-form {
+    background: #fff;
+    clear: left;
+    width: 600px;
+}
+
+#mce-MMERGE6 {
+    height: 100px;
+    padding-top: 5px;
+    overflow: scroll;
 }
 /* -------------------------------- Media Queries */
 
@@ -437,6 +462,7 @@ footer a {
         right: 0;
         left: 0;
         z-index: 1030;
+        overflow-x: hidden;
     }
 
     .header-container {
@@ -447,6 +473,9 @@ footer a {
 
 /* pad the top a bit when navbar is collapsed on mobile */
 @media (max-width: 991px) {
+    body {
+        overflow-x: hidden;
+    }
     .header-container {
         padding-top: 90px;
     }
