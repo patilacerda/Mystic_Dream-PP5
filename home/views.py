@@ -1,4 +1,5 @@
 from django.shortcuts import render
+from products.models import Product
 
 # Create your views here.
 
@@ -6,7 +7,15 @@ from django.shortcuts import render
 def index(request):
     """ A view to return the index page """
 
-    return render(request, 'home/index.html')
+    # Fetch top-rated products
+    top_rated_products = Product.objects.filter(rating__isnull=False).order_by('-rating')[:12]
+    product_chunks = [top_rated_products[i:i + 4] for i in range(0, len(top_rated_products), 4)]
+    
+    context = {
+        'product_chunks': product_chunks,
+    }
+
+    return render(request, 'home/index.html', context)
 
 
 def contact_page(request):

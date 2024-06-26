@@ -12,15 +12,15 @@
 {% block content %}
 <div class="container h-100">
     <!--Index banner-->
-    <div class="row h-100">
+    <div class="row h-100 text-end">
         <div class="col-7 col-md-6 my-auto">
-            <h1 class="bnnr-text display-4">
+            <h1 class="text-black display-4">
                 Unlock the Secrets of Enchanted Beauty
             </h1>
             <div class="my-5">
                 <h4>
                     <a href="{% url 'products' %}"
-                        class="shop-now-button btn btn-lg rounded-pill fs-2 py-3">Discover</a>
+                        class="shop-now-button btn btn-lg rounded-pill fs-3 py-2">Discover</a>
                 </h4>
             </div>
         </div>
@@ -29,48 +29,114 @@
 
 
 </div>
-<div class="category-list w-100 p-5 mb-0">
+<div class="index-content w-100 p-5 mb-0">
     <div class="row">
         <div class="col">
-        <!--Categories Menu-->
+            <!--Categories Menu-->
             <div class="text-center">
-                <h2 class="logo-font">All Categories</h2>
-        </div>
+                <h2 class="logo-font fs-2">All Categories</h2>
+            </div>
 
             <ul class="list-group-item-action d-lg-flex justify-content-center">
-            <li class="category-item">
-                <a href="#">
+                <li class="category-item">
+                    <a href="{% url 'products' %}?category=lingerie_set">
                         <img src="media/categories/thumbnail_icon1.png" alt="" class="category-image">
-                    <span class="category-title">Lingerie Sets</span>
-                </a>
-            </li>
-            <li class="category-item">
-                <a href="#">
+                        <span class="category-title">Lingerie Sets</span>
+                    </a>
+                </li>
+                <li class="category-item">
+                    <a href="{% url 'products' %}?category=bras">
                         <img src="media/categories/thumbnail_icon2.png" alt="" class="category-image">
-                    <span class="category-title">Bras</span>
-                </a>
-            </li>
-            <li class="category-item">
-                <a href="#">
+                        <span class="category-title">Bras</span>
+                    </a>
+                </li>
+                <li class="category-item">
+                    <a href="{% url 'products' %}?category=bottoms">
                         <img src="media/categories/thumbnail_icon3.png" alt="" class="category-image">
-                    <span class="category-title">Bottoms</span>
-                </a>
-            </li>
-            <li class="category-item">
-                <a href="#">
+                        <span class="category-title">Bottoms</span>
+                    </a>
+                </li>
+                <li class="category-item">
+                    <a href="{% url 'products' %}?category=accessories">
                         <img src="media/categories/thumbnail_icon4.png" alt="" class="category-image">
-                    <span class="category-title">Accessories</span>
-                </a>
-            </li>
-            <li class="category-item">
-                <a href="#">
+                        <span class="category-title">Accessories</span>
+                    </a>
+                </li>
+                <li class="category-item">
+                    <a href="{% url 'products' %}?category=nighties,pajamas,robes">
                         <img src="media/categories/thumbnail_icon5.png" alt="" class="category-image" />
-                    <span class="category-title">Nightwear</span>
-                </a>
-            </li>
-        </ul>
-        <!--End Categories menu-->
+                        <span class="category-title">Nightwear</span>
+                    </a>
+                </li>
+            </ul>
+            <hr class="w-100 mb-1 text-center">
+            <!--End Categories menu-->
+        </div>
     </div>
-    
+
+    <!-- Top Rated Products Carousel -->
+    <div class="container carousel-container my-5">
+        <h2 class="logo-font text-center mb-4 fs-2">Featured Products</h2>
+        <div id="topRatedCarousel" class="carousel slide" data-bs-ride="carousel">
+            <div class="carousel-inner">
+                {% for chunk in product_chunks %}
+                <div class="carousel-item {% if forloop.first %}active{% endif %}">
+                    <div class="row">
+                        {% for product in chunk %}
+                        <div class="col-md-3">
+                            <div class="card h-100 border-0 text-center">
+                                <div class="card-header">
+                                    {% if product.image %}
+                                    <a href="{% url 'product_detail' product.id %}">
+                                        <img class="card-img-top img-fluid" src="{{ product.image.url }}"
+                                            alt="{{ product.name }}">
+                                        <span class="view-btn">View Details</span>
+                                    </a>
+                                    {% else %}
+                                    <a href="{% url 'product_detail' product.id %}">
+                                        <img class="card-img-top img-fluid" src="{{ MEDIA_URL }}noimage.png"
+                                            alt="{{ product.name }}">
+                                        <span class="view-btn">View Details</span>
+                                    </a>
+                                    {% endif %}
+                                </div>
+                                <div class="card-body pb-0 fs-5">
+                                    <p class="mb-0">{{ product.name }}</p>
+                                </div>
+                                <div class="card-footer bg-white pt-0 border-0">
+                                    <p class="lead mb-0 text-left font-weight-bold">${{ product.price }}</p>
+                                    {% if product.rating %}
+                                    <small class="text-body-secondary"><i
+                                            class="fas fa-star mr-1"></i>{{ product.rating }}
+                                        / 5</small>
+                                    {% else %}
+                                    <small class="text-body-secondary">No Rating</small>
+                                    {% endif %}
+                                    {% if request.user.is_superuser %}
+                                    <small class="ml-3">
+                                        <a href="{% url 'edit_product' product.id %}">Edit</a> |
+                                        <a class="text-danger" href="{% url 'delete_product' product.id %}">Delete</a>
+                                    </small>
+                                    {% endif %}
+                                </div>
+                            </div>
+                        </div>
+                        {% endfor %}
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#topRatedCarousel" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#topRatedCarousel" data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="false"></span>
+                <span class="visually-hidden">Next</span>
+            </button>
+        </div>
+    </div>
+    <!-- End of Top Rated Products Carousel -->
 </div>
+
 {% endblock %}

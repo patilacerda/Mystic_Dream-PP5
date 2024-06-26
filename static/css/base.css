@@ -88,7 +88,7 @@ body {
     padding: 19px;
 }
 
-.category-list {
+.index-content {
 	background: white;
 
 }
@@ -128,6 +128,33 @@ body {
 .carousel-container {
     background: #ffff;
 }
+
+.carousel-control-prev-icon{
+    padding-right: 10rem;
+}
+
+.carousel-control-next-icon {
+    padding-left: 10rem;
+}
+
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+    margin-bottom: 4rem;
+    color: #f30080;
+    background-image: none; /* Removes the default icon */
+}
+
+.carousel-control-prev-icon:after {
+    content: '\2039'; /* Unicode character for the left arrow */
+    font-size: 55px;
+}
+
+.carousel-control-next-icon:after {
+    content: '\203A'; /* Unicode character for the right arrow */
+    font-size: 55px;
+}
+
+/*Faq*/
 
 .accordion {
     --bs-accordion-btn-focus-box-shadow: 0 0 0 0.25rem #f3008249;
@@ -459,8 +486,11 @@ input[name='q']::placeholder {
 }
 
 /*Footer*/
-footer {
+.footer-div {
     background: #f30080;
+
+}
+footer {
     color: #000;
     bottom: 0;
 }
@@ -545,7 +575,7 @@ footer a {
         font-size: .9rem;
     }
 
-    .category-list {
+    .index-content {
         display: none;
     }
     .btn.btn-outline-black.rounded-0,
