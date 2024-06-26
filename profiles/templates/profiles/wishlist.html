@@ -13,23 +13,53 @@
 <div class="overlay"></div>
 <div class="container-fluid mt-5">
     <div class="row">
-        <h2 class="logo-font mt-3 mb-4">My Wishlist</h2>
-        <hr>
+        <div class="ol text-center mt-3">
+            <h2 class="logo-font mt-3 mb-4">My Wishlist</h2>
+            <hr class="w-50 mb-1">
+        </div>
+
         {% if wishlist_items.exists %}
-        <!-- Change this line -->
-        <div class="row">
-            {% for item in wishlist_items %}
-            <div class="col-sm-6 col-md-6 col-lg-4 col-xl-3">
-                <div class="card h-100">
-                    <img class="card-img-top" src="{{ item.product.image.url }}" alt="{{ item.product.name }}">
-                    <div class="card-body">
-                        <h5 class="card-title">{{ item.product.name }}</h5>
-                        <p class="card-text">${{ item.product.price }}</p>
-                        <a href="{% url 'product_detail' item.product.id %}" class="btn btn-primary">View Details</a>
+        <div class="row mt-3">
+
+            <div class="product-container col-10 offset-1">
+                <div class="row">
+                    {% for item in wishlist_items %}
+                    <div class="col-sm-6 col-md-6 col-lg-4 col-xl-3">
+                        <div class="card h-100 border-0 text-center">
+                            <div class="card-header">
+                                <ul class="list-unstyled">
+                                    <li>
+                                        <a href="{% url 'product_detail' item.product.id %}">
+                                            <img class="card-img-top img-fluid" src="{{ item.product.image.url }}"
+                                                alt="{{ item.product.name }}">
+                                            <span class="view-btn">View Details</span>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="card-body pb-0 fs-5">
+                                <h5 class="card-title mb-0">{{ item.product.name }}</h5>
+                            </div>
+                            <div class="card-footer pt-0 border-0">
+                                <div class="row">
+                                    <div class="col">
+                                        <p class="lead mb-0 text-center font-weight-bold">${{ item.product.price }}</p>
+                                        {% if item.product.rating %}
+                                        <small class="text-body-secondary"><i
+                                                class="fas fa-star mr-1"></i>{{ item.product.rating }} /
+                                            5</small>
+                                        {% else %}
+                                        <small class="text-body-secondary">No Rating</small>
+                                        {% endif %}
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
+                    {% endfor %}
                 </div>
             </div>
-            {% endfor %}
+
         </div>
         {% else %}
         <p>You have no items in your wishlist.</p>
