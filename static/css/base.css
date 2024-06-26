@@ -3,10 +3,10 @@ html {
 }
 
 body {
-    background: url('/media/bannerback.jpg') no-repeat center center fixed;
+    background: url('/static/images/bannerback.jpg') no-repeat center center fixed;
     background-size: cover;
     height: calc(100vh - 164px);
-    background-color: #120147;
+    background-color: #f30080;
     color: #555;
     font-family: "Jost", sans-serif;
     overflow-x: hidden;
