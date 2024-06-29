@@ -1,3 +1,4 @@
+{% load static %}
 <footer class="text-center text-lg-center mt-5">
 
     <div class="fs-5 container p-4">
@@ -70,20 +71,20 @@
 
                 <ul class="list-unstyled text-white">
                     <li>
-                        <a href="https://www.facebook.com/" target="_blank" rel="noopener" class="text-white"><i class="fa-brands fa-facebook"></i></a>
+                        <a href="https://www.facebook.com/profile.php?id=61561791686020/" target="_blank" rel="noopener" class="text-white" name="Facebook page"><i class="fa-brands fa-facebook"></i></a>
                     </li>
                     <li>
-                        <a href="https://www.instagram.com/" target="_blank" rel="noopener" class="text-white"><i class="fa-brands fa-instagram"></i></a>
+                        <a href="https://www.instagram.com/" target="_blank" rel="noopener" class="text-white" name="instagram page"><i class="fa-brands fa-instagram"></i></a>
                     </li>
                     <li>
-                        <a href="https://x.com/?lang=en" target="_blank" rel="noopener" class="text-white"><i class="fa-brands fa-twitter"></i></a>
+                        <a href="https://x.com/?lang=en" target="_blank" rel="noopener" class="text-white" name="Twitter page"><i class="fa-brands fa-twitter"></i></a>
                     </li>
                 </ul>
                 </div>
                 
             </div>
             <div class="col-lg-3 col-md-6 mb-4 mb-md-0">
-                <img src="static/images/stripebadge.png" class="img-fluid" alt="Stripe badge">
+                <img src="{% static 'images/stripebadge.png' %}" class="img-fluid" alt="Stripe badge">
             </div>
         </div>
     </div>
