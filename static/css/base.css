@@ -165,6 +165,14 @@ body {
     font-weight: bold;
 }
 
+/*Contact*/
+
+#contact-form .form-control,
+#contact-form .form-select {
+    border-color: #000;
+    border-radius: 0;
+}
+
 /*Default Styles*/
 .text-bgdy {
     color: #ffff !important;
