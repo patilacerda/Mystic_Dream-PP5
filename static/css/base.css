@@ -219,7 +219,7 @@ body {
 .btn-bgdy:focus {
     background: #fff;
     color: #f30080;
-    border-color: solid 1px #f30080;
+    border: solid 1px #f30080;
 
 }
 
