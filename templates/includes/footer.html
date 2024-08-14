@@ -71,7 +71,7 @@
 
                 <ul class="list-unstyled text-white">
                     <li>
-                        <a href="https://www.facebook.com/profile.php?id=61561791686020/" target="_blank" rel="noopener" class="text-white" name="Facebook page"><i class="fa-brands fa-facebook"></i></a>
+                        <a href="https://www.facebook.com/mysticintimate/" target="_blank" rel="noopener" class="text-white" name="Facebook page"><i class="fa-brands fa-facebook"></i></a>
                     </li>
                     <li>
                         <a href="https://www.instagram.com/" target="_blank" rel="noopener" class="text-white" name="instagram page"><i class="fa-brands fa-instagram"></i></a>
@@ -92,7 +92,7 @@
 
     <div class="text-white text-center p-3" style="background-color: rgba(0, 0, 0, 0.4);">
         <p>
-            &COPY; 2024 Copyright - <a href="#" target="_blank">Patricia Lacerda <i class="fa-brands fa-github"></i></a>
+            &COPY; 2024 Copyright - <a href="https://github.com/patilacerda" target="_blank" class="link-light">Patricia Lacerda <i class="fa-brands fa-github"></i></a>
         </p>
         <p>
             This website is part of a developer's portfolio, created for educational purposes and to showcase
@@ -101,3 +101,55 @@
     </div>
 
 </footer>
+
+{% block extra_js %}
+<script>
+    $(document).ready(function() {
+        $('#mc-embedded-subscribe-form').on('submit', function(e) {
+            e.preventDefault();  // Prevent the default form submission
+    
+            var email = $('#mce-EMAIL').val();  // Get the email value
+            var actionUrl = $(this).attr('action') + '&c=?';  // Append JSONP callback to the action URL
+    
+            if (!validateEmail(email)) {  // Validate the email format
+                showErrorMessage('Please enter a valid email address.');
+                return;
+            }
+    
+            $.ajax({
+                url: actionUrl,
+                type: 'GET',
+                data: $(this).serialize(),
+                dataType: 'jsonp',
+                contentType: "application/json; charset=utf-8",
+                success: function(data) {
+                    if (data.result === 'success') {
+                        showSuccessMessage('Thank you for subscribing!');
+                        $('#mc-embedded-subscribe-form')[0].reset();  // Clear the form
+                    } else {
+                        showErrorMessage(data.msg || 'An error occurred. Please try again.');
+                    }
+                },
+                error: function() {
+                    showErrorMessage('An error occurred. Please try again.');
+                }
+            });
+        });
+    
+        function validateEmail(email) {
+            var regex = /^([\w-\.]+@([\w-]+\.)+[\w-]{2,4})?$/;
+            return regex.test(email);
+        }
+    
+        function showErrorMessage(message) {
+            $('#mce-error-response').html(message).show();
+            $('#mce-success-response').hide();
+        }
+    
+        function showSuccessMessage(message) {
+            $('#mce-success-response').html(message).show();
+            $('#mce-error-response').hide();
+        }
+    });
+    </script>
+{% endblock %}
