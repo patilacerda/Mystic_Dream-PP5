@@ -1,0 +1,15 @@
+User-agent: *
+Disallow: /admin/
+Disallow: /bag/
+Disallow: /checkout/
+Disallow: /profiles/
+Disallow: /login/
+Disallow: /signup/
+Disallow: /password_reset/
+Disallow: /account/
+
+# Allow access to the static assets
+Allow: /static/
+
+# Sitemap location
+Sitemap: https://mystic-intimate-b5e28fa0a305.herokuapp.com/sitemap.xml
