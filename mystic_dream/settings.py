@@ -29,15 +29,16 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = os.environ.get('SECRET_KEY', '')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = 'DEVELOPMENT' in os.environ
 
 ALLOWED_HOSTS = [
-    '8000-patilacerda-mysticdream-t9452j6p7vi.ws.codeinstitute-ide.net',
-    '.herokuapp.com'
+    '8000-patilacerda-mysticdream-0nwejwqrenc.ws.codeinstitute-ide.net',
+    '.herokuapp.com',
+    'localhost'
     ]
 
 CSRF_TRUSTED_ORIGINS = [
-    'https://8000-patilacerda-mysticdream-t9452j6p7vi.ws.codeinstitute-ide.net',
+    'https://8000-patilacerda-mysticdream-0nwejwqrenc.ws.codeinstitute-ide.net',
     'https://mystic-intimate-b5e28fa0a305.herokuapp.com/',
 ]
 
