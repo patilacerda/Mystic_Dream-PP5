@@ -7,7 +7,9 @@ from .forms import ContactForm
 
 
 def index(request):
-    """ A view to return the index page """
+    """
+    A view to return the index page
+    """
 
     # Fetch top-rated products
     top_rated_products = Product.objects.filter(rating__isnull=False).order_by(
@@ -23,14 +25,17 @@ def index(request):
 
 
 def contact_page(request):
-    ''' Renders contact page and handles contact form submissions '''
+    """
+    Renders contact page and handles contact form submissions
+    """
 
     if request.method == 'POST':
         form = ContactForm(request.POST)
         if form.is_valid():
             form.save()
-            messages.success(request, 'Your message has been sent successfully!')
-            return redirect('contact') 
+            messages.success(
+                request, 'Your message has been sent successfully!')
+            return redirect('contactus')
     else:
         form = ContactForm()
 
@@ -42,12 +47,16 @@ def contact_page(request):
 
 
 def faq_page(request):
-    ''' Renders FAQ page  '''
+    """
+    Renders FAQ page
+    """
 
     return render(request, 'home/faq.html')
 
 
 def privacy_page(request):
-    ''' Renders privacy page  '''
+    """
+    Renders privacy page
+    """
 
     return render(request, 'home/privacy.html')
