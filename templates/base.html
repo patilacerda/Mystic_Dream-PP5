@@ -15,7 +15,7 @@
     <meta name="description"
         content="Step into the enchanting world of Mystic Dreams, where every piece of lingerie and nightwear is a fairy tale spun into fabric. Discover our collection of handmade, delicate intimates and sleepwear, designed to sprinkle a touch of magic into your wardrobe. Perfect for those who cherish girly, whimsical styles and the allure of fairy-inspired elegance.">
     <!--Favicon-->
-    <link rel="icon" href="" type="image/x-icon">
+    <link rel="icon" href="{% static 'images/favicon.ico' %}" type="image/icon">
     {% endblock %}
 
     {% block corecss %}
@@ -89,8 +89,8 @@
         <div class="row nav-bg pt-lg-2 d-none d-lg-flex">
             <!--Logo-->
             <div class="col-12 col-lg-4 my-auto py-1 py-lg-0 text-center text-lg">
-                <a href="{% url 'home' %}" class="nav-link main-logo-link">
-                    <h2 class="logo-font text-bgdy my-0 ms-5">Mystic Dreams</h2>
+                <a href="{% url 'home' %}" class="nav-link main-logo-link pb-0">
+                    <img src="{% static 'images/mystic-dream-02B.png' %}" alt="Mystic Dreams Logo" class="img-fluid">
                 </a>
             </div>
             <!--Search-->
@@ -139,6 +139,7 @@
                         </a>
                         <div class="dropdown-menu border-0" aria-labelledby="user-options">
                             {% if request.user.is_authenticated %}
+                            <p class="dropdown-item n-user text-center">Welcome {{ user }}!</p>
                             {% if request.user.is_superuser %}
                             <a href="{% url 'add_product' %}" class="dropdown-item">Product Management</a>
                             {% endif %}
@@ -171,15 +172,15 @@
         </div>
         <div class="row nav-bg">
             <!-- Mobile toggle -->
-            <nav class="navbar navbar-expand-lg w-100">
+            <nav class="navbar navbar-expand-lg w-100 pb-0">
                 <div class="col-12 d-flex justify-content-center d-block d-sm-none">
-                    <div class="col-sm-12 my-auto py-1 py-lg-0 text-center text-lg">
+                    <div class="col-sm-12 my-auto text-center text-lg">
                         <a href="{% url 'home' %}" class="nav-link">
-                            <h2 class="logo-font text-bgdy my-0">Mystic Dreams</h2>
+                            <img src="{% static 'images/mystic-dream-02B.png' %}" alt="Mystic Dreams Logo" class="img-fluid">
                         </a>
                     </div>
                 </div>
-                <div class="container-fluid col-12 d-flex mr-5">
+                <div class="container-fluid col-12 d-flex  justify-content-between">
                     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#main-nav"
                         aria-controls="main-nav" aria-expanded="false" aria-label="Toggle navigation">
                         <i class="fa-solid fa-bars"></i>
