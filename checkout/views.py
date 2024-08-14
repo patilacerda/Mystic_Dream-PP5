@@ -18,6 +18,9 @@ import json
 
 @require_POST
 def cache_checkout_data(request):
+    """
+    Handles the caching of checkout data for a user session.
+    """
     try:
         pid = request.POST.get('client_secret').split('_secret')[0]
         stripe.api_key = settings.STRIPE_SECRET_KEY
@@ -34,8 +37,13 @@ def cache_checkout_data(request):
 
 
 def checkout(request):
+    """
+    Renders the checkout page and handles the order processing.
+    """
     stripe_public_key = settings.STRIPE_PUBLIC_KEY
     stripe_secret_key = settings.STRIPE_SECRET_KEY
+
+    intent = None
 
     if request.method == 'POST':
         bag = request.session.get('bag', {})
@@ -130,15 +138,11 @@ def checkout(request):
         else:
             order_form = OrderForm()
 
-    if not stripe_public_key:
-        messages.warning(request, 'Stripe public key is missing. \
-            Did you forget to set it in your environment?')
-
     template = 'checkout/checkout.html'
     context = {
         'order_form': order_form,
         'stripe_public_key': stripe_public_key,
-        'client_secret': intent.client_secret,
+        'client_secret': intent.client_secret if intent else '',
     }
 
     return render(request, template, context)
