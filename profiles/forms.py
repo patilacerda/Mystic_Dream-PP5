@@ -1,3 +1,4 @@
+import re
 from django import forms
 from .models import UserProfile, Wishlist
 
@@ -33,6 +34,16 @@ class UserProfileForm(forms.ModelForm):
             self.fields[field].widget.attrs['class'] = (
                 'border-black rounded-0 profile-form-input')
             self.fields[field].label = False
+
+    def clean_default_phone_number(self):
+        """
+        Validate the phone number field to ensure it contains only digits.
+        """
+        phone_number = self.cleaned_data.get('default_phone_number')
+        if phone_number and not re.match(r'^\d+$', phone_number):
+            raise forms.ValidationError(
+                "Phone number must contain only digits.")
+        return phone_number
 
 
 class WishlistForm(forms.ModelForm):
