@@ -56,6 +56,10 @@ body {
     text-underline-offset: 8px;
 }
 
+.n-user {
+    color: #f30080;
+}
+
 .fa-bars {
     color: #fff;
     font-weight: bold;
@@ -165,6 +169,14 @@ body {
     font-weight: bold;
 }
 
+/*Contact*/
+
+#contact-form .form-control,
+#contact-form .form-select {
+    border-color: #000;
+    border-radius: 0;
+}
+
 /*Default Styles*/
 .text-bgdy {
     color: #ffff !important;
@@ -219,7 +231,7 @@ body {
 .btn-bgdy:focus {
     background: #fff;
     color: #f30080;
-    border-color: solid 1px #f30080;
+    border: solid 1px #f30080;
 
 }
 
@@ -515,6 +527,24 @@ footer a {
     padding-top: 5px;
     overflow: scroll;
 }
+
+#mc_embed_signup div.response {
+    margin: 1em 0 !important;
+    padding: 1em .5em .5em 0 !important;
+    font-weight: normal !important;
+    color: inherit !important;
+    width: 100% !important;
+    top: auto !important;
+    float: none !important;
+    text-align: center !important;
+    background-color: transparent !important;
+}
+
+#mc_embed_signup #mce-success-response {
+    color: inherit !important;
+    font-weight: normal !important;
+}
+
 /* -------------------------------- Media Queries */
 
 /* Slightly larger container on xl screens */
